@@ -29,6 +29,20 @@ namespace StudentService
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddSwaggerGen();
+            services.ConfigureSwaggerGen(options =>
+            {
+                options.SingleApiVersion(new Swashbuckle.Swagger.Model.Info
+                {
+                    Version = "v1",
+                    Title = "Student API",
+                    Description = "The API to work with students of the nation",
+                    TermsOfService = "We own you..."
+                });
+            //options.IncludeXmlComments(pathToDoc);
+            options.DescribeAllEnumsAsStrings();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +52,9 @@ namespace StudentService
             loggerFactory.AddDebug();
 
             app.UseMvc();
+
+            app.UseSwagger();
+            app.UseSwaggerUi();
         }
     }
 }
