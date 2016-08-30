@@ -8,10 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StudentService.Controllers
 {
+    /// <summary>Service for providing operations for <cref>Student</cref></summary>
     [Route("api/[controller]")]
     public class StudentsController : Controller
     {
-        // GET api/values
+        /// <summary> GET list of <cref>Student</cref> </summary>
         [HttpGet]
         public IEnumerable<Student> Get()
         {
@@ -22,26 +23,30 @@ namespace StudentService.Controllers
                 };
         }
 
-        // GET api/values/5
+        /// <summary> GET details about <cref>Student</cref> </summary>
+        /// <param name="id">Student Id</param>
         [HttpGet("{id}")]
         public Student Get(int id)
         {
             return new Student(id, "student" + id);
         }
 
-        // POST api/values
+        /// <summary>Add a <cref>Student</cref></summary>
         [HttpPost]
         public void Post([FromBody]Student value)
         {
         }
 
-        // PUT api/values/5
+        /// <summary> GET details about <cref>Student</cref> </summary>
+        /// <param name="id">Student Id</param>
+        /// <param name="value">Student details</param>
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Student value)
         {
         }
 
-        // DELETE api/values/5
+        /// <summary> Delete details about <cref>Student</cref> </summary>
+        /// <param name="id">Student Id</param>
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

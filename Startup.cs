@@ -27,6 +27,9 @@ namespace StudentService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var app = Microsoft.Extensions.PlatformAbstractions.PlatformServices.Default.Application;
+            var pathToDoc = System.IO.Path.Combine(app.ApplicationBasePath, "StudentService.xml");
+
             // Add framework services.
             services.AddMvc();
 
@@ -40,7 +43,7 @@ namespace StudentService
                     Description = "The API to work with students of the nation",
                     TermsOfService = "We own you..."
                 });
-            //options.IncludeXmlComments(pathToDoc);
+            options.IncludeXmlComments(pathToDoc);
             options.DescribeAllEnumsAsStrings();
             });
         }
