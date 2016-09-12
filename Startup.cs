@@ -28,7 +28,7 @@ namespace StudentService
         public void ConfigureServices(IServiceCollection services)
         {
             var app = Microsoft.Extensions.PlatformAbstractions.PlatformServices.Default.Application;
-            var pathToDoc = System.IO.Path.Combine(app.ApplicationBasePath, "StudentService.xml");
+            //var pathToDoc = System.IO.Path.Combine(app.ApplicationBasePath, "StudentService.xml");
 
             // Add framework services.
             services.AddMvc();
@@ -43,7 +43,7 @@ namespace StudentService
                     Description = "The API to work with students of the nation",
                     TermsOfService = "We own you..."
                 });
-            options.IncludeXmlComments(pathToDoc);
+            //options.IncludeXmlComments(pathToDoc);
             options.DescribeAllEnumsAsStrings();
             });
         }
